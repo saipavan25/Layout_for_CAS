@@ -1,0 +1,61 @@
+﻿@model IEnumerable<helo.Models.EmployeesTable>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+<title>Doctor Check</title>
+
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<p>
+
+    @Html.ActionLink(" ", "Create",null, new { @class = "fa fa-plus-circle w3-button w3-hover-none w3-hover-text-dark-gray w3-text-teal w3-xxxlarge " })
+</p>
+<div class="w3-responsive">
+    <table class="table w3-table w3-striped w3-border w3-centered w3-margin-bottom">
+        <tr class="w3-teal ">
+            <th class="w3-padding-16">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th class="w3-padding-16">
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th class="w3-padding-16">
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th class="w3-padding-16">
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="w3-hover-dark-gray w3- ">
+                <td style="vertical-align:middle">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td style="vertical-align:middle">
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td style="vertical-align:middle">
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+                <td style="vertical-align:middle">
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    
+
+                    @Html.ActionLink("  ", "Edit", new { id = item.Id }, new { @class = "fa fa-edit w3-xlarge w3-margin-right w3-right-align w3-button w3-hover-none w3-hover-text-teal" })
+                   @* @Html.ActionLink("  ", "Details", new { id = item.Id }, new { @class = "fa fa-info w3-xlarge w3-margin-left  w3-right-align w3-margin-right w3-button w3-hover-none w3-hover-text-teal" })*@
+                    @Html.ActionLink("  ", "Delete", new { id = item.Id }, new { @class = "fa fa-trash w3-xlarge w3-margin-left w3-margin-right  w3-right-align w3-button w3-hover-none w3-hover-text-red " })
+
+                </td>
+            </tr>
+        }
+
+
+    </table>
+</div>
